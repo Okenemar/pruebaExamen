@@ -17,9 +17,9 @@
 		<div class="row">
 			<div class="col">
 				<h1>Datos de la reserva</h1>
-				<form action="AlmacenarReserva" method="post">
+				<form action="AlmacenarReservaV2" method="post">
 					
-					<input type="hidden" name="id_parcela" value="${parcela.id}" />
+		
 					
 					<table>
 					
@@ -53,36 +53,16 @@
 							<td>Luz</td>
 							<td><input type="checkbox" name="luz" /></td>
 						</tr>
+						<tr>
+							<td>Parcela</td>
+							<td><input type="text" name="id_parcela" /></td>
+						</tr>	
 					</table>
 					<input class="btn btn-primary" type="submit" value="Reservar"
 						name="reservar" />
 				</form>
 			</div>
-			<div class="col">
-				<h1>Info de la parcela reservada</h1>
-				<form action="IniciarReserva" method="get">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>numero</th>
-							<th>m<sub>2</sub></th>
-							<th>Precio dia</th>
-						</tr>
-					</thead>
-					<tbody>
-						
-							<tr>
-								
-								<td>${parcela.numero}</td>
-								<td>${parcela.m_cuadrados}</td>
-								<td>${parcela.precio_dia}</td>
-							</tr>
-						
-
-					</tbody>
-				</table>
-				</form>
-			</div>
+			
 		</div>
 	</div>
 </body>

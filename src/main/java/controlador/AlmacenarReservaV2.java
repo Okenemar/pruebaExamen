@@ -11,35 +11,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Parcela;
 import modelo.ParcelaModelo;
 import modelo.Reserva;
 import modelo.ReservaModelo;
 
 /**
- * Servlet implementation class ConfirmarReserva
+ * Servlet implementation class AlmacenarReservaV2
  */
-@WebServlet("/AlmacenarReserva")
-public class AlmacenarReserva extends HttpServlet {
+@WebServlet("/AlmacenarReservaV2")
+public class AlmacenarReservaV2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AlmacenarReserva() {
+    public AlmacenarReservaV2() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ParcelaModelo mParcela = new ParcelaModelo();
-		int idParcela = Integer.parseInt(request.getParameter("id_parcela"));
-		Parcela parcela = mParcela.getParcela(idParcela);
-		
-		request.setAttribute("parcela", parcela);
-		request.getRequestDispatcher("formReserva.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("formReservaV2.jsp").forward(request, response);
 	}
 
 	/**
@@ -47,8 +43,9 @@ public class AlmacenarReserva extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReservaModelo mReserva = new ReservaModelo();
+		ParcelaModelo mParcela = new ParcelaModelo();
 		Reserva reserva = new Reserva();
-		
+		String numero = request.getParameter("numero");
 		String nombre_usuario = request.getParameter("nombre");
 		String apellido_usuario = request.getParameter("apellido");
 		String dni_usuario = request.getParameter("dni");
@@ -75,6 +72,11 @@ public class AlmacenarReserva extends HttpServlet {
 		}else {
 			reserva.setLuz(true);
 		}
+		Boolean parcelaExiste = mParcela.parcelaExiste(numero);
+		if (parcelaExiste==false) {
+			request.getRequestDispatcher("formParcela.jsp").forward(request, response);			
+		}
+				
 		int id_parcela = Integer.parseInt(request.getParameter("id_parcela"));
 		
 		reserva.setNombre_usuario(nombre_usuario);
@@ -90,7 +92,7 @@ public class AlmacenarReserva extends HttpServlet {
 		
 		mReserva.insertarReserva(reserva);
 		
-		request.getRequestDispatcher("infoReserva.jsp").forward(request, response);
+		request.getRequestDispatcher("Inicio").forward(request, response);
 	}
 
 }

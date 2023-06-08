@@ -32,17 +32,14 @@ public class CancelarReserva extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//TODO implementar la eliminacion de la reserva
 		//abrir la vista confirmacion.jsp
-		ParcelaModelo mParcela = new ParcelaModelo();
-		int idParcela = Integer.parseInt(request.getParameter("id"));
-		Parcela parcela = mParcela.getParcela(idParcela);
-		
 		ReservaModelo mReserva = new ReservaModelo();
-		String nombre_usuario = request.getParameter("nombre_usuario");
-		String apellido_usuario = request.getParameter("apellido_usuario");
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		
-		request.setAttribute("parcela", parcela);
-		request.getRequestDispatcher("infoReserva.jsp").forward(request, response);
+		mReserva.EliminarReserva(id);
+		
+		
+		request.getRequestDispatcher("confirmacion.jsp").forward(request, response);
 		
 		
 	
@@ -53,6 +50,8 @@ public class CancelarReserva extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	
+
 	}
 
 }

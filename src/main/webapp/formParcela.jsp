@@ -1,59 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!-- para poder utilizar etiquetas de jstl -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inicio</title>
+<title>Insertar Parcela</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 </head>
 <body>
-
-	
 	<jsp:include page="navBar.html"></jsp:include>
-
-	<!-- inprimir la lista de parcelas con jstl -->
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>Listado de parcelas</h1>
-				<a href="AlmacenarReservaV2">Nueva Reserva</a>
-				<table class="table">
-					<thead>
+				<h1>Datos de la parcela</h1>
+				<form action="AlmacenarReservaV2" method="post">
+					
+		
+					
+					<table>
+					
 						<tr>
-							<th>Numero</th>
-							<th>m<sub>2</sub></th>
-							<th>Precio</th>
-							<th>Reservar</th>
+							<td>Numero:</td>
+							<td><input type="text" name="numero" value="" /></td>
 						</tr>
-					
-					</thead>
-					
-					<tbody>
-					
-							<c:forEach items="${parcelas}" var="parcela">
-							<tr>
-															
-								<td>${parcela.numero}</td>
-								<td>${parcela.m_cuadrados}</td>
-								<td>${parcela.precio_dia}</td>
-								<td><a href="IniciarReserva?id=${parcela.id}">Reservar</a></td>
-							</tr>
-							</c:forEach>
-							
-					</tbody>
-					
-				</table>
+						<tr>
+							<td>M <sub>2</sub>:</td>
+							<td><input type="text" name="metros_cuadrados" value="" /></td>
+						</tr>
+						<tr>
+							<td>Precio al dia:</td>
+							<td><input type="text" name="precio_dia" value="" /></td>
+						</tr>
+						
+					</table>
+					<input class="btn btn-primary" type="submit" value="Insertar"
+						name="insertar" />
+				</form>
 			</div>
+			
 		</div>
 	</div>
-
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

@@ -14,15 +14,13 @@ public class Parcela {
 	private String numero;
 	private int m_cuadrados;
 	private double precio_dia;
-	private ArrayList<Reserva> reservas;
 	
-	public Parcela(int id, String numero, int m_cuadrados, double precio_dia, ArrayList<Reserva> reservas) {
+	public Parcela(int id, String numero, int m_cuadrados, double precio_dia) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.m_cuadrados = m_cuadrados;
 		this.precio_dia = precio_dia;
-		this.reservas = reservas;
 	}
 
 	public Parcela() {
@@ -63,18 +61,12 @@ public class Parcela {
 	
 	
 
-	public ArrayList<Reserva> getReservas() {
-		return reservas;
-	}
-
-	public void setReservas(ArrayList<Reserva> reservas) {
-		this.reservas = reservas;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Parcela [id=" + id + ", numero=" + numero + ", m_cuadrados=" + m_cuadrados + ", precio_dia="
-				+ precio_dia + ", reservas=" + reservas + "]";
+				+ precio_dia + "]";
 	}
 	
 	
