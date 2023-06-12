@@ -59,6 +59,22 @@ public class ParcelaModelo extends Conector {
 		return parcela;
 	}
 	
+	public Parcela getIdParcela(String numero) {
+		Parcela parcela = new Parcela();
+		
+		try {
+			prt = conexion.prepareStatement("SELECT id FROM parcelas WHERE numero=?");
+			prt.setString(1, numero);
+			ResultSet resultado = prt.executeQuery();
+			resultado.next();
+			parcela.setId(resultado.getInt("id"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return parcela;
+	}
+	
 	public Boolean parcelaExiste(String numero) {
 		boolean parcelaExiste = false;
 		try {
@@ -79,6 +95,21 @@ public class ParcelaModelo extends Conector {
 		return parcelaExiste;
 	}
 	
+	public void insertarParcela(Parcela parcela) {
+		try {
+			prt = conexion.prepareStatement("INSERT INTO parcelas (numero, m_cuadrados, precio_dia) VALUES (?,?,?)");
+			
+			prt.setString(1, parcela.getNumero());
+			prt.setInt(2, parcela.getM_cuadrados());
+			prt.setDouble(3, parcela.getPrecio_dia());
+			
+			prt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 
 }

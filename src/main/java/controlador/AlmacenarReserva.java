@@ -86,11 +86,10 @@ public class AlmacenarReserva extends HttpServlet {
 		reserva.setId_parcela(id_parcela);
 		
 		
-		
-		
 		mReserva.insertarReserva(reserva);
 		
 		request.getRequestDispatcher("infoReserva.jsp").forward(request, response);
+		
 	}
 
 }

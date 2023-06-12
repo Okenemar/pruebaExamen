@@ -25,37 +25,37 @@
 					
 						<tr>
 							<td>Nombre:</td>
-							<td><input type="text" name="nombre" value="" /></td>
+							<td><input type="text" name="nombre" value="asd" /></td>
 						</tr>
 						<tr>
 							<td>Apellido:</td>
-							<td><input type="text" name="apellido" value="" /></td>
+							<td><input type="text" name="apellido" value="asd" /></td>
 						</tr>
 						<tr>
 							<td>Dni:</td>
-							<td><input type="text" name="dni" value="" /></td>
+							<td><input type="text" name="dni" value="123456789z" /></td>
 						</tr>
 						<tr>
 							<td>Numero de pesonas:</td>
-							<td><input type="text" name="numero_personas" value="" /></td>
+							<td><input type="text" name="numero_personas" value="3" /></td>
 						</tr>
 						<tr>
 							<td>Fecha inicio:</td>
 							<td><input type="text" name="fecha_inicio"
-								placeholder="dd-MM-yyyy" value="" /></td>
+								placeholder="dd-MM-yyyy" value="12-05-2000" /></td>
 						</tr>
 						<tr>
 							<td>Fecha fin:</td>
 							<td><input type="text" name="fecha_fin"
-								placeholder="dd-MM-yyyy" value="" /></td>
+								placeholder="dd-MM-yyyy" value="19-06-2000" /></td>
 						</tr>
 						<tr>
 							<td>Luz</td>
 							<td><input type="checkbox" name="luz" /></td>
 						</tr>
 						<tr>
-							<td>Parcela</td>
-							<td><input type="text" name="id_parcela" /></td>
+							<td>Nº Parcela</td>
+							<td><input type="text" name="numero_parcela" value="100" /></td>
 						</tr>	
 					</table>
 					<input class="btn btn-primary" type="submit" value="Reservar"

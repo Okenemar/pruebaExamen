@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col">
 				<h1>Datos de la parcela</h1>
-				<form action="AlmacenarReservaV2" method="post">
+				<form action="AlmacenarParcela" method="post">
 					
 		
 					
@@ -25,7 +25,7 @@
 					
 						<tr>
 							<td>Numero:</td>
-							<td><input type="text" name="numero" value="" /></td>
+							<td><input type="text" name="numero" value="${numeroParcela}" /></td>
 						</tr>
 						<tr>
 							<td>M <sub>2</sub>:</td>
