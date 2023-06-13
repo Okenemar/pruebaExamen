@@ -47,6 +47,7 @@ public class AlmacenarReserva extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReservaModelo mReserva = new ReservaModelo();
+		ParcelaModelo mParcela = new ParcelaModelo();
 		Reserva reserva = new Reserva();
 		
 		String nombre_usuario = request.getParameter("nombre");
@@ -83,11 +84,14 @@ public class AlmacenarReserva extends HttpServlet {
 		reserva.setNumero_usuarios(numero_usuarios);
 		reserva.setInicio_reserva(inicio_reserva);
 		reserva.setFin_reserva(fin_reserva);
-		reserva.setId_parcela(id_parcela);
+		reserva.setFecha_reserva(fin_reserva);
+		reserva.setParcela(mParcela.getParcela(id_parcela));
 		
 		
 		mReserva.insertarReserva(reserva);
+		reserva.setId(mReserva.getmaxIdReserva());
 		
+		request.setAttribute("reserva", reserva);
 		request.getRequestDispatcher("infoReserva.jsp").forward(request, response);
 		
 	}

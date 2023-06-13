@@ -27,7 +27,6 @@
 	  				Reserva completada!
 				</div>
 				<hr>
-				
 				<h1>Info de la parcela reservada</h1>
 				<table class="table">
 					<thead>
@@ -43,7 +42,6 @@
 							<td>${reserva.parcela.numero}</td>
 							<td>${reserva.parcela.m_cuadrados}</td>
 							<td>${reserva.parcela.precio_dia}</td>
-							
 						</tr>
 					</tbody>
 				</table>
@@ -53,7 +51,6 @@
 			<div class="col">
 				<hr>
 				<h1>Info de la reserva</h1>
-				<form action="CancelarReserva" method="get">
 				<table class="table">
 					<thead>
 						<tr>
@@ -73,16 +70,15 @@
 							<td>${reserva.apellido_usuario}</td>
 							<td>${reserva.dni_usuario}</td>
 							<td>${reserva.numero_usuarios}</td>
-							<td><fmt:formatDate value="${reserva.inicio_reserva }" pattern="dd-MM-yyyy" /></td>
-							<td><fmt:formatDate value="${reserva.fin_reserva }" pattern="dd-MM-yyyy" /></td>
+ 				<td><fmt:formatDate value="${reserva.inicio_reserva}" pattern="dd-MM-yyyy" /></td>
+				<td><fmt:formatDate value="${reserva.fin_reserva}" pattern="dd-MM-yyyy" /></td>
 							<td>${reserva.luz}</td>
 						</tr>
 
 
 					</tbody>
 				</table>
-				</form>
-				<a class="btn btn-danger" href="CancelarReserva?id=${reserva.parcela.id}">Anular reserva</a>
+				<a class="btn btn-danger" href="CancelarReserva?id=${reserva.id}">Anular reserva</a>
 				
 			</div>
 		</div>

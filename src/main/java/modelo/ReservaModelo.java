@@ -19,16 +19,17 @@ public class ReservaModelo extends Conector {
 	public void insertarReserva(Reserva reserva) {
 		try {
 			prt = conexion.prepareStatement(
-					"INSERT INTO reservas(nombre_usuario, apellido_usuario, dni_usuario, numero_usuarios, inicio_reserva, fin_reserva, luz, id_parcela)VALUES (?,?,?,?,?,?,?,?)");
+					"INSERT INTO reservas(nombre_usuario, apellido_usuario, dni_usuario, numero_usuarios, inicio_reserva, fin_reserva, fecha_resreva, luz, id_parcela)VALUES (?,?,?,?,?,?,?,?,?)");
 			prt.setString(1, reserva.getNombre_usuario());
 			prt.setString(2, reserva.getApellido_usuario());
 			prt.setString(3, reserva.getDni_usuario());
 			prt.setInt(4, reserva.getNumero_usuarios());
 			prt.setDate(5, new Date(reserva.getInicio_reserva().getTime()));
 			prt.setDate(6, new Date(reserva.getFin_reserva().getTime()));
-			prt.setBoolean(7, reserva.isLuz());
-//			prt.setInt(8, reserva.getParcela().getId()); no usar
-			prt.setInt(8, reserva.getId_parcela());
+			prt.setDate(7, new Date(reserva.getFecha_reserva().getTime()));
+			prt.setBoolean(8, reserva.isLuz());
+			prt.setInt(9, reserva.getParcela().getId()); 
+			
 
 			prt.execute();
 
